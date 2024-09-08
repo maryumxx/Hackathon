@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+
 // Function to gather form data
 function getFormData() {
     const firstName = document.getElementById("firstName").value;
