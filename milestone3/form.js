@@ -51,31 +51,37 @@ function displayResume(data) {
     const resumeContainer = document.createElement("div");
     resumeContainer.classList.add("resume-container");
     resumeContainer.innerHTML = `
-      <h2>${data.firstName} ${data.surname}</h2>
-      <p>${data.profession}</p>
-      <p>${data.city}, ${data.country}</p>
-      <p>${data.phone} | ${data.email}</p>
+  <h2>${data.firstName} ${data.surname}</h2>
+  <p>${data.profession}</p>
+  <p>${data.city}, ${data.country}</p>
+  <p>${data.phone} | ${data.email}</p>
   
-      <h3>Work Experience</h3>
-      <p><strong>${data.jobTitle}</strong> at ${data.company}</p>
-      <p>${data.jobLocation} | ${data.startMonth} ${data.startYear} - ${data.endMonth} ${data.endYear}</p>
-      <p>${data.jobDesc}</p>
+  <h3>Work Experience</h3>
+  <p><strong>${data.jobTitle}</strong> at ${data.company}</p>
+  <p>${data.jobLocation} | ${data.startMonth} ${data.startYear} - ${data.endMonth} ${data.endYear}</p>
+  <p>${data.jobDesc}</p>
   
-      <h3>Education</h3>
-      <p><strong>${data.educationLevel}</strong> in ${data.fieldOfStudy}</p>
-      <p>${data.institute}, Expected Completion: ${data.completionYear}</p>
+  <h3>Education</h3>
+  <p><strong>${data.educationLevel}</strong> in ${data.fieldOfStudy}</p>
+  <p>${data.institute}, Expected Completion: ${data.completionYear}</p>
   
-      <h3>Skills</h3>
-      <ul>
-        ${data.skills.map(skill => `<li>${skill}</li>`).join('')}
-      </ul>
-    `;
+  <h3>Skills</h3>
+  <ul>
+  ${data.skills.map(skill => `<li>${skill}</li>`).join('')}
+  </ul>
+  `;
     document.body.appendChild(resumeContainer);
 }
-// Add event listener to the "Next" button
-const generateResumeButton = document.querySelector(".btn-next");
-generateResumeButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    const formData = getFormData();
-    displayResume(formData);
+document.addEventListener("DOMContentLoaded", () => {
+    const generateResumeButton = document.querySelector(".btn-next");
+    if (generateResumeButton) {
+        generateResumeButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            const formData = getFormData();
+            displayResume(formData);
+        });
+    }
+    else {
+        console.error('Button not found');
+    }
 });
