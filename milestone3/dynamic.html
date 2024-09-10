@@ -62,9 +62,22 @@
         </div>
 
         <div class="form-group">
-            <label for="email">Email *</label>
-            <input type="email" id="email" placeholder="e.g. m.nad@exemple.pk" required>
-        </div>
+          <label for="email">Email *</label>
+          <input type="email" id="email" placeholder="e.g. m.nad@exemple.pk" required>
+      </div>
+  
+      <script>
+          
+          const emailInput = document.getElementById('email');
+  
+          emailInput.addEventListener('input', function () {
+              if (emailInput.checkValidity()) {
+                  emailInput.style.borderColor = 'green'; 
+              } else {
+                  emailInput.style.borderColor = 'red'; 
+              }
+          });
+      </script>
         
     </form>
    
@@ -76,8 +89,9 @@
 <!-- title -->
       <div class="form-group">
           <label for="job-title">Job Title *</label>
-          <input type="text" id="job-title" placeholder="e.g. Sr. Developer">
+          <input type="text" id="job-title" placeholder="e.g. Sr. Developer" >
       </div>
+      
 <!-- company -->
       <div class="form-group">
           <label for="company">Company</label>
@@ -295,23 +309,25 @@
  
    
 </form> 
-
+`
 <!-- Skills -->
 <h1 style="font-size:40px; font-weight:lighter; margin-bottom:20px; margin-top:20px;">Skills</h1>
   <form>
     <div style="line-height: 1.5; " class="form-group">
-      <label><input type="checkbox" name="skills" value="UI/UX"> UI/UX</label>
-      <label><input type="checkbox" name="skills" value="Back-end Proficiency"> Back-end Proficiency</label>
-      <label><input type="checkbox" name="skills" value="Communication"> Communication</label>
-      <label><input type="checkbox" name="skills" value="Problem Solving"> Problem Solving</label>
-      <label><input type="checkbox" name="skills" value="Machine Learning"> Machine Learning</label>
+      <label><input type="checkbox" name="skills" value="Management">Management</label>
+      <label><input type="checkbox" name="skills" value="Creativity">Creativity</label>
+      <label><input type="checkbox" name="skills" value="Communication">Communication</label>
+      <label><input type="checkbox" name="skills" value="Problem Solving">Problem Solving</label>
+      <label><input type="checkbox" name="skills" value="Marketing & Sales">Marketing & Sales</label>
       <label><input type="checkbox" name="skills" value="Computer Literacy">Computer Literacy</label>
       <label><input type="checkbox" name="skills"value="Analytical">Analytical</label>
-      <label><input type="checkbox" name="skills" value="Computer Literacy">Computer Literacy</label>
+      <label><input type="checkbox" name="skills" value="Soft Skills">Soft Skills</label>
   
     </div>
+
   </form>
   <button class="btn-next">Generate Resume</button>
+
   <script src="form.js"></script>
 </body>
 </html>
